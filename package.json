@@ -1,0 +1,32 @@
+{
+  "name": "krypton-85",
+  "version": "1.0.0",
+  "description": "Seamstress Web Site for Claire Martin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilsb8/krypton-85.git"
+  },
+  "keywords": [
+    "claire",
+    "seamstress",
+    "website"
+  ],
+  "author": "William A. Ferguson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilsb8/krypton-85/issues"
+  },
+  "homepage": "https://github.com/wilsb8/krypton-85#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
