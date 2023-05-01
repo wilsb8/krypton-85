@@ -940,8 +940,8 @@ section {
 
 .gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
-  max-height: 800px;
-  max-width: 800px
+  max-height: 1100px;
+  max-width: 1400px
 }
 
 .gallery .gallery-item:hover img {
