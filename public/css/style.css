@@ -1185,8 +1185,8 @@ section {
 
 .gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
-  height: 800px;
-  width: 800px;
+  height: 1200px;
+  width: 1200px;
 }
 
 .gallery .gallery-item:hover img {
