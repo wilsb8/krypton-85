@@ -1185,7 +1185,7 @@ section {
 
 .gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
-  height: 1000px;
+  height: 75%;
   width: 1000px;
 }
 
