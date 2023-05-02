@@ -1,1 +1,1 @@
-web: pm2 index.js --name runPhpSite.js
+web: node index.js 
