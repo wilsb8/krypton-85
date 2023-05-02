@@ -4,7 +4,8 @@ const app = require("./app/app");
 require("dotenv").config(); // read from our .env file
 
 
+
 // create listen server
-http.createServer(app).listen(process.env.PORT || 5000, ()=> {
+http.createServer(app).listen(process.env.PORT || 3000, ()=> {
     console.log(`Server here. I am fully operational and listening on port: ${process.env.PORT}`)
 });
