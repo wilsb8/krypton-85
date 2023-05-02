@@ -1,5 +1,5 @@
 const express = require('express');
-const sphp = require('sphp');
+// const sphp = require('sphp');
 const route  = require('../routes/routes');
 const app = express();
 // serve static content
