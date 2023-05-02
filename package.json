@@ -28,6 +28,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "insomnia-plugin-xdebug-switch": "^0.2.0",
     "sphp": "^0.6.3"
   }
 }
