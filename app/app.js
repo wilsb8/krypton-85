@@ -31,8 +31,8 @@ app.post('/send', (req, res) => {
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
-          user: 'cade.hansen@ethereal.email',
-          pass: 'TaqaKBqS4q9fC9zgmK'
+          user: 'brianne.stanton37@ethereal.email',
+          pass: 'EtZS74bzGCYBXw9kuC'
       }
   });
   
