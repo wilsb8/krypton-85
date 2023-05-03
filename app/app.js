@@ -30,7 +30,7 @@ app.post('/send', (req, res) => {
     let mailTransporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
-      secure: false,
+      secure: true,
       auth: {
         user: process.env.GMAIL,
         pass: process.env.PASSWORD,
@@ -42,7 +42,7 @@ app.post('/send', (req, res) => {
   
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Nodemailer Contact" <seamsobvious@gmail.com>', // sender address
+        from: '"Nodemailer Contact" <seamsobvious.no-reply@gmail.com>', // sender address
         to: 'Seams Obvious', 
         subject: 'Node Contact Request', // Subject line
         text: 'You have a message from the website!', // plain text body
