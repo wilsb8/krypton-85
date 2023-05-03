@@ -33,9 +33,10 @@ app.post('/send', (req, res) => {
       secure: false,
       auth: {
         user: process.env.GMAIL,
-        pass: process.env.PASSWORD
- 
-    
+        pass: process.env.PASSWORD,
+        tls:{
+          rejectUnauthorized:false
+        }
       }
   });
   
