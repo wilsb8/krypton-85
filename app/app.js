@@ -27,14 +27,13 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    const mailTransporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
       auth: {
-          user: 'brianne.stanton37@ethereal.email',
-          pass: 'EtZS74bzGCYBXw9kuC'
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD // naturally, replace both with your real credentials or an application-specific password
       }
-  });
+    });
   
     // setup email data with unicode symbols
     let mailOptions = {
