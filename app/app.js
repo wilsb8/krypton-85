@@ -29,8 +29,8 @@ app.post('/send', (req, res) => {
     // create reusable transporter object using the default SMTP transport
     let mailTransporter = nodemailer.createTransport({
       host: "smtp.protonmail.com",
-      port: 1025,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD,
@@ -53,10 +53,10 @@ app.post('/send', (req, res) => {
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        res.render({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
       } else {
         console.log('Email sent: ' + info.response);
-        res.render({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
         }
     });
 });
