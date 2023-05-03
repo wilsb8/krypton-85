@@ -38,7 +38,7 @@ app.post('/send', (req, res) => {
   
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Nodemailer Contact" <seamsobvious.no-reply@gmail.com>', // sender address
+        from: '"Nodemailer Contact Form" <no-reply@seamsovious.com>', // sender address
         to: 'seamsobvious@gmail.com', 
         subject: 'Node Contact Request', // Subject line
         text: 'You have a message from the website!', // plain text body
