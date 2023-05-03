@@ -27,23 +27,19 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    let mailTransporter = nodemailer.createTransport({
-      host: "smtp.protonmail.com",
-      port: 465,
-      secure: true,
+    const mailTransporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
-        tls:{
-          rejectUnauthorized:false
-        }
+          user: 'cade.hansen@ethereal.email',
+          pass: 'TaqaKBqS4q9fC9zgmK'
       }
   });
   
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Nodemailer Contact" <seamsobvious.no-reply@gmail.com>', // sender address
-        to: 'Seams Obvious', 
+        to: 'cade.hansen@ethereal.email', 
         subject: 'Node Contact Request', // Subject line
         text: 'You have a message from the website!', // plain text body
         html: output // html body
