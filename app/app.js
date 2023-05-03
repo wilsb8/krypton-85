@@ -27,15 +27,15 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    let mailTransporter = nodemailer.createTransport("SMTP",{
-      host: "smtp.gmail.com", // hostname
-      secureConnection: false,
-      port: 587, // port for secure SMTP
-      requiresAuth: true,
-      domains: ["gmail.com", "googlemail.com"],
-          auth: {
-          user: process.env.GMAIL,
-          pass: process.env.PASSWORD
+    let mailTransporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.GMAIL,
+        pass: process.env.PASSWORD
+ 
+    
       }
   });
   
