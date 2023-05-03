@@ -48,16 +48,16 @@ router.post('/send', (req, res) => {
   
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-            
-        }
-        console.log('Message sent: %s', info.messageId);   
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  
-        // res.render('/', {msg:'Email has been sent'});
+      if (error) {
+        console.log(error);
+        res.json({ status: 'error', message: 'There was a problem sending your message. Please try again later.' });
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.json({ status: 'success', message: 'Your message has been sent. Thank you!' });
+      }
     });
   });
+
 
 
 module.exports = router;
