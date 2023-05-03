@@ -30,8 +30,8 @@ app.post('/send', (req, res) => {
     let mailTransporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'seamsobvious@gmail.com',
-          pass: 'Csewalt2023'
+          user: process.env.GMAIL,
+          pass: process.env.PASSWORD
       }
   });
   
@@ -49,9 +49,13 @@ app.post('/send', (req, res) => {
       if (error) {
         console.log(error);
         res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        setTimeout(3000);
+        res.render('/')
       } else {
         console.log('Email sent: ' + info.response);
         res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        setTimeout(3000);
+        res.render('/')
       }
     });
 });
