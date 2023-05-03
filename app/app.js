@@ -27,7 +27,7 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    var transport = nodemailer.createTransport({
+    var mailTransporter = nodemailer.createTransport({
       host: "sandbox.smtp.mailtrap.io",
       port: 2525,
       auth: {
@@ -49,16 +49,15 @@ app.post('/send', (req, res) => {
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        res.render('contact', { errorMessage: 'There was a problem sending your message. Please try again later.' });
       } else {
         console.log('Email sent: ' + info.response);
-        console.log('Message: ' + output)
-        res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
-        }
+        res.render('contact', { successMessage: 'Your message has been sent. Thank you!' });
+      }
     });
 });
 
 app.use('/', route);
 
 
-module.exports = app; 
+module.exports = app;
