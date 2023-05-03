@@ -1,5 +1,7 @@
 const express = require('express');
 const route  = require('../routes/routes');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const app = express();
 
 // static directories
@@ -10,7 +12,6 @@ app.use(express.static('views'));
 
 
 // for accepting post from data
-const bodyParser = require("express");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
