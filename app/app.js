@@ -39,7 +39,7 @@ app.post('/send', (req, res) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Nodemailer Contact" <seamsobvious.no-reply@gmail.com>', // sender address
-        to: 'cade.hansen@ethereal.email', 
+        to: 'seamsobvious@gmail.com', 
         subject: 'Node Contact Request', // Subject line
         text: 'You have a message from the website!', // plain text body
         html: output // html body
