@@ -48,7 +48,7 @@ app.post('/send', (req, res) => {
     };
   
     // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
+    mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
         res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
