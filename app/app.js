@@ -8,9 +8,6 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.static('views'));
 
-
-
-
 // for accepting post from data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
