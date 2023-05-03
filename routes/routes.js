@@ -24,18 +24,13 @@ router.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
+    let mailTransporter = nodemailer.createTransport({
+      service: 'gmail',
       auth: {
-          user: 'seamsobvious@gmail.com', // generated ethereal user
-          pass: 'Csewalt2023'  // generated ethereal password
-      },
-      tls:{
-        rejectUnauthorized:false
+          user: 'seamsobvious@gmail.com',
+          pass: 'Csewalt2023'
       }
-    });
+  });
   
     // setup email data with unicode symbols
     let mailOptions = {
