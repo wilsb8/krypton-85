@@ -53,10 +53,10 @@ app.post('/send', (req, res) => {
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        res.render('contact', { errorMessage: 'There was a problem sending your message. Please try again later.', showErrorMessage: true });
+        res.render('sent', { errorMessage: 'There was a problem sending your message. Please try again later.', showErrorMessage: true });
       } else {
         console.log('Email sent: ' + info.response);
-        res.render('contact', { successMessage: 'Your message has been sent. Thank you!', showSuccessMessage: true });
+        res.render('sent', { successMessage: 'Your message has been sent. Thank you!', showSuccessMessage: true });
       }
     });
     
