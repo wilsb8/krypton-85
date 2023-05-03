@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
 
+
+
+
 // static directories
 app.use(express.static('public'));
 app.use(express.static('views'));
