@@ -27,9 +27,13 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    let mailTransporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
+    let mailTransporter = nodemailer.createTransport("SMTP",{
+      host: "smtp.gmail.com", // hostname
+      secureConnection: false,
+      port: 587, // port for secure SMTP
+      requiresAuth: true,
+      domains: ["gmail.com", "googlemail.com"],
+          auth: {
           user: process.env.GMAIL,
           pass: process.env.PASSWORD
       }
@@ -49,14 +53,10 @@ app.post('/send', (req, res) => {
       if (error) {
         console.log(error);
         res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
-        setTimeout(3000);
-        res.render('/')
       } else {
         console.log('Email sent: ' + info.response);
         res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
-        setTimeout(3000);
-        res.render('/')
-      }
+        }
     });
 });
 
