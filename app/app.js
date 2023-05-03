@@ -52,6 +52,7 @@ app.post('/send', (req, res) => {
         res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
       } else {
         console.log('Email sent: ' + info.response);
+        console.log('Message: ' + output)
         res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
         }
     });
