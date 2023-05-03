@@ -27,11 +27,12 @@ app.post('/send', (req, res) => {
     `;
   
     // create reusable transporter object using the default SMTP transport
-    const mailTransporter = nodemailer.createTransport({
-      service: 'gmail.com',
+    var transport = nodemailer.createTransport({
+      host: "sandbox.smtp.mailtrap.io",
+      port: 2525,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD // naturally, replace both with your real credentials or an application-specific password
+        user: "e6d2eb0325ba50",
+        pass: "191168b8a27666"
       }
     });
   
