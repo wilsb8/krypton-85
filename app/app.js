@@ -6,9 +6,6 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.static('views'));
 
-// enable cors
-const cors = require("cors");
-app.use(cors);
 
 
 
