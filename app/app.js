@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // post route
-app.post('/index', (req, res) => {
+app.post('/send', (req, res) => {
     console.log(req.body);
     const output = `
       <h2>You have a new contact request</h2>
