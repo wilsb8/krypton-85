@@ -18,5 +18,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use('/', route);
+app.use('/send', route)
 
 module.exports = app; 
