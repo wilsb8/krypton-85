@@ -6,7 +6,7 @@ const reqPath = path.join(__dirname);
 
 router.get('/', (req, res) => {
     console.log(reqPath);
-    res.sendFile(path.join(reqPath, 'views/index.html'));
+    res.sendFile(path.join(reqPath, 'views/index.handlebars'));
 });
 
 

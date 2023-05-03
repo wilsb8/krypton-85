@@ -5,8 +5,6 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 
-
-
 // static directories
 app.use(express.static('public'));
 app.use(express.static('views'));
@@ -15,8 +13,8 @@ app.use(express.static('views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// send route
-app.post('/send', (req, res) => {
+// post route
+app.post('/index', (req, res) => {
     console.log(req.body);
     const output = `
       <h2>You have a new contact request</h2>
@@ -53,12 +51,12 @@ app.post('/send', (req, res) => {
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        // res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
         console.log(error)
       } else {
         console.log('Email sent: ' + info.response);
         console.log('Message: ' + output)
-        // res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
         }
     });
 });
