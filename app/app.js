@@ -14,8 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // send route
 app.post('/send', (req, res) => {
+    console.log(req.body);
     const output = `
-      <p>You have a new contact request</p>
+      <h2>You have a new contact request</h2>
       <h3>Contact Details</h3>
       <ul>  
         <li>Name: ${req.body.name}</li>
@@ -49,11 +50,12 @@ app.post('/send', (req, res) => {
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        // res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        console.log(error)
       } else {
         console.log('Email sent: ' + info.response);
         console.log('Message: ' + output)
-        res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        // res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
         }
     });
 });
