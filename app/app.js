@@ -28,7 +28,7 @@ app.post('/send', (req, res) => {
   
     // create reusable transporter object using the default SMTP transport
     const mailTransporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'gmail.com',
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD // naturally, replace both with your real credentials or an application-specific password
