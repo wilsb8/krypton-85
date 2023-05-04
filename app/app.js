@@ -42,7 +42,7 @@ app.post('/send', (req, res) => {
   let mailOptions = {
     from: '"Nodemailer Contact Form" <no-reply@seamsovious.com>', // sender address
     to: 'seamsobvious@gmail.com',
-    subject: 'Node Contact Request', // Subject line
+    subject: 'Seams Obvious Contact Request', // Subject line
     text: 'You have a message from the website!', // plain text body
     html: output // html body
   };
