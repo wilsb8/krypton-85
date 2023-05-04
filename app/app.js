@@ -54,14 +54,14 @@ app.post('/send', (req, res) => {
       console.log(error);
       setTimeout(() => {
         res.redirect('/');
-      }, 3000);
+      }, 2000);
     } else {
       console.log('Email sent: ' + info.response);
       console.log('Message: ' + output)
       console.log('Mail sent!')
       setTimeout(() => {
         res.redirect('/');
-      }, 3000);
+      }, 2000);
     }
   });
 });
