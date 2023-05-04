@@ -483,10 +483,39 @@
             <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
           </div>
           <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message">There was a problem sending your message. Please try again later.</div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
+            <div class="loading">Loading...</div>
+            <div class="error-message <%= (typeof req.session !== 'undefined' && req.session.status === 'error-message') ? req.session.cssClass : '' %>"><%= (typeof req.session !== 'undefined' && req.session.status === 'error-message') ? req.session.message : '' %></div>
+            <div class="sent-message <%= (typeof req.session !== 'undefined' && req.session.status === 'sent-message') ? req.session.cssClass : '' %>"><%= (typeof req.session !== 'undefined' && req.session.status === 'sent-message') ? req.session.message : '' %></div>
+        </div><div class="my-3">
+          <div class="loading">Loading...</div>
+          <div class="error-message" id="error-message"></div>
+          <div class="sent-message" id="sent-message"></div>
+        </div>
+        
+        <script>
+          // Get a reference to the error and success message elements
+          const errorMessageEl = document.getElementById('error-message');
+          const sentMessageEl = document.getElementById('sent-message');
+        
+          // Check if there is an error or success message to display
+          if (typeof req.session !== 'undefined') {
+            if (req.session.status === 'error-message') {
+              // Show the error message and hide the success message
+              errorMessageEl.textContent = req.session.message;
+              errorMessageEl.style.display = 'block';
+              sentMessageEl.style.display = 'none';
+            } else if (req.session.status === 'sent-message') {
+              // Show the success message and hide the error message
+              sentMessageEl.textContent = req.session.message;
+              sentMessageEl.style.display = 'block';
+              errorMessageEl.style.display = 'none';
+            }
+          } else {
+            // Hide both messages if there is no message to display
+            sentMessageEl.style.display = 'none';
+            errorMessageEl.style.display = 'none';
+          }
+        </script>
           <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
 

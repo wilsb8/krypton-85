@@ -2,6 +2,7 @@ const express = require('express');
 const route  = require('../routes/routes');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+
 const app = express();
 
 
@@ -61,6 +62,4 @@ app.post('/send', (req, res) => {
 });
 
 app.use('/', route);
-
-
 module.exports = app; 
