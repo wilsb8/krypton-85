@@ -434,7 +434,7 @@
       </div>
 
       <div class="map">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7961.370425626495!2d-0.22184019181601883!3d53.61255861412227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1683123141925!5m2!1sen!2sus" frameborder="0" allowfullscreen></iframe>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27723.792743123282!2d-0.2348186530290002!3d53.62210271806995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4878905b5572985f%3A0x9f32c3b3600857da!2sImmingham%2C%20UK!5e0!3m2!1sen!2sus!4v1683167200901!5m2!1sen!2sus"= frameborder="0" allowfullscreen></iframe>
       </div>
 
       <div class="container mt-5">
@@ -467,7 +467,7 @@
           </div>
         </div>
 
-        <form action="/send" method="POST" role="form" class="php-email-form">
+        <form action="/send" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -480,42 +480,13 @@
             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
           </div>
           <div class="form-group mt-3">
-            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
           </div>
           <div class="my-3">
-            <div class="loading">Loading...</div>
-            <div class="error-message <%= (typeof req.session !== 'undefined' && req.session.status === 'error-message') ? req.session.cssClass : '' %>"><%= (typeof req.session !== 'undefined' && req.session.status === 'error-message') ? req.session.message : '' %></div>
-            <div class="sent-message <%= (typeof req.session !== 'undefined' && req.session.status === 'sent-message') ? req.session.cssClass : '' %>"><%= (typeof req.session !== 'undefined' && req.session.status === 'sent-message') ? req.session.message : '' %></div>
-        </div><div class="my-3">
-          <div class="loading">Loading...</div>
-          <div class="error-message" id="error-message"></div>
-          <div class="sent-message" id="sent-message"></div>
-        </div>
-        
-        <script>
-          // Get a reference to the error and success message elements
-          const errorMessageEl = document.getElementById('error-message');
-          const sentMessageEl = document.getElementById('sent-message');
-        
-          // Check if there is an error or success message to display
-          if (typeof req.session !== 'undefined') {
-            if (req.session.status === 'error-message') {
-              // Show the error message and hide the success message
-              errorMessageEl.textContent = req.session.message;
-              errorMessageEl.style.display = 'block';
-              sentMessageEl.style.display = 'none';
-            } else if (req.session.status === 'sent-message') {
-              // Show the success message and hide the error message
-              sentMessageEl.textContent = req.session.message;
-              sentMessageEl.style.display = 'block';
-              errorMessageEl.style.display = 'none';
-            }
-          } else {
-            // Hide both messages if there is no message to display
-            sentMessageEl.style.display = 'none';
-            errorMessageEl.style.display = 'none';
-          }
-        </script>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
           <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
 

@@ -2,7 +2,6 @@ const express = require('express');
 const route  = require('../routes/routes');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-
 const app = express();
 
 
@@ -51,15 +50,18 @@ app.post('/send', (req, res) => {
     // send mail with defined transport object
     mailTransporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        res.json({ status: 'error-message', message: 'There was a problem sending your message. Please try again later.' });
+        res.render('There was a problem sending your message. Please try again later.');
         console.log(error)
       } else {
         console.log('Email sent: ' + info.response);
         console.log('Message: ' + output)
-        res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        //res.json({ status: 'sent-message', message: 'Your message has been sent. Thank you!' });
+        res.render('/')
         }
     });
 });
 
 app.use('/', route);
+
+
 module.exports = app; 
