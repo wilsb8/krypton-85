@@ -2,6 +2,7 @@ const express = require('express');
 const route  = require('../routes/routes');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+require("dotenv").config();
 const app = express();
 
 
@@ -33,10 +34,12 @@ app.post('/send', (req, res) => {
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "e6d2eb0325ba50",
-      pass: "191168b8a27666"
+      user: `${process.env.ID}`,
+      pass: `${process.env.PASSWORD}` 
     }
   });
+
+  console.log(`${process.env.ID}`)
 
   // setup email data with unicode symbols
   let mailOptions = {
