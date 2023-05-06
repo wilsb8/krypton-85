@@ -31,7 +31,7 @@ app.post('/send', (req, res) => {
 
   // create reusable transporter object using the default SMTP transport
   var mailTransporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
+    host: "live.smtp.mailtrap.io",
     port: 2525,
     auth: {
       user: `${process.env.ID}`,
