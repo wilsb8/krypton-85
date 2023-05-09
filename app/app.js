@@ -2,7 +2,6 @@ const express = require('express');
 const route  = require('../routes/routes');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-// const sslRedirect = require('heroku-ssl-redirect');
 require("dotenv").config();
 const app = express();
 
@@ -11,15 +10,14 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.static('views'));
 
-// for heroku
-// app.use(sslRedirect);
+
 
 // redirect to https
 app.use((req, res, next) => {
-  if (req.protocol === 'http') {
-      return res.redirect(301, `https://${req.headers.host}${req.url}`); // use this to redirect from http to https
-  }
-  next();
+  if (req.header('x-forwarded-proto') !== 'https')
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  else
+    next();
 });
 
 
