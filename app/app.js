@@ -59,7 +59,7 @@ app.post('/send', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: 'Mailer Daemon <seamsobvious@seamsovious.com>', // sender address
+    from: `Mailer Daemon <${req.body.email}>`, // sender address
     to: 'seamsobvious@gmail.com',
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
