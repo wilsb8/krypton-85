@@ -70,7 +70,14 @@ app.post('/send', (req, res) => {
 });
 
 
-app.use('/', route);
+app.use((req, res, next) => {
+  if (req.protocol === 'http') {
+      return res.redirect(301, `https://${req.headers.host}${req.url}`); // use this to redirect from http to https
+  }
+  next();
+});
+
+app.get('/', routes)
 
 
 module.exports = app; 
