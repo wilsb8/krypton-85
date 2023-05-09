@@ -2,7 +2,7 @@ const express = require('express');
 const route  = require('../routes/routes');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const sslRedirect = require('heroku-ssl-redirect');
+// const sslRedirect = require('heroku-ssl-redirect');
 require("dotenv").config();
 const app = express();
 
