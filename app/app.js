@@ -43,7 +43,7 @@ app.post('/send', (req, res) => {
   // create reusable transporter object using the default SMTP transport
   let mailTransporter = nodemailer.createTransport({
     host: "live.smtp.mailtrap.io",
-    port: 587,
+    port: 2525,
     auth: {
       user: `${process.env.ID}`,
       pass: `${process.env.PASSWORD}` 
@@ -54,7 +54,7 @@ app.post('/send', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"The Website" <no-reply@seamsovious.com>', // sender address
+    from: 'The Website <no-reply@seamsovious.com>', // sender address
     to: 'seamsobvious@gmail.com',
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
