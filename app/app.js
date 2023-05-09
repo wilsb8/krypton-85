@@ -49,17 +49,17 @@ app.post('/send', (req, res) => {
       user: `${process.env.ID}`,
       pass: `${process.env.PASSWORD}` 
     },
-    tls: {
-      // do not fail on invalid certs
-      rejectUnauthorized: false,
-    },
+    // tls: {
+    //   // do not fail on invalid certs
+    //   rejectUnauthorized: false,
+    // },
   });
 
   console.log(`${process.env.ID}`)
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: 'The Website <no-reply@seamsovious.com>', // sender address
+    from: 'Mailer Daemon <no-reply@seamsovious.com>', // sender address
     to: 'seamsobvious@gmail.com',
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
