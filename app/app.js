@@ -47,7 +47,11 @@ app.post('/send', (req, res) => {
     auth: {
       user: `${process.env.ID}`,
       pass: `${process.env.PASSWORD}` 
-    }
+    },
+    tls: {
+      // do not fail on invalid certs
+      rejectUnauthorized: false,
+    },
   });
 
   console.log(`${process.env.ID}`)
