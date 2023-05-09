@@ -77,7 +77,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', routes)
+app.get('/', route)
 
 
 module.exports = app; 
