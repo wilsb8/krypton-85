@@ -10,6 +10,15 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.static('views'));
 
+// redirect to https
+app.use((req, res, next) => {
+  if (req.protocol === 'http') {
+      return res.redirect(301, `https://${req.headers.host}${req.url}`); // use this to redirect from http to https
+  }
+  next();
+});
+
+
 // for accepting post from data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -70,12 +79,6 @@ app.post('/send', (req, res) => {
 });
 
 
-app.use((req, res, next) => {
-  if (req.protocol === 'http') {
-      return res.redirect(301, `https://${req.headers.host}${req.url}`); // use this to redirect from http to https
-  }
-  next();
-});
 
 app.get('/', route)
 
