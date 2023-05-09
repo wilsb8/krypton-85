@@ -60,7 +60,7 @@ app.post('/send', (req, res) => {
   // setup email data with unicode symbols
   let mailOptions = {
     from: 'Mailer Daemon <no-reply@seamsobvious.com>', // sender address
-    to: 'seamsobvious@gmail.com',
+    to: 'william.a.ferguson@zoho.com',
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
     html: output // html body
