@@ -44,7 +44,7 @@ app.post('/send', (req, res) => {
   let mailTransporter = nodemailer.createTransport({
     host: "live.smtp.mailtrap.io",
     port: 587,
-    secure: true,
+    secure: false,
     auth: {
       user: `${process.env.ID}`,
       pass: `${process.env.PASSWORD}` 
