@@ -59,13 +59,8 @@ app.post('/send', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-<<<<<<< HEAD
-    from: 'Mailer Daemon <no-reply@seamsobvious.com>', // sender address
-    to: 'william.a.ferguson@zoho.com',
-=======
     from: '"The Website" <no-reply@seamsovious.com>', // sender address
     to: 'clairesewingservices@proton.me',
->>>>>>> 5460d14 (updated nodemailer recipient)
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
     html: output // html body
