@@ -3,6 +3,13 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+/* To prevent FOUC */
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   color: #444444;
