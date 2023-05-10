@@ -59,7 +59,7 @@ app.post('/send', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"The Website" <no-reply@seamsovious.com>', // sender address
+    from: '"The Website" <no-reply@seamsobvious.com>', // sender address
     to: 'clairesewingservices@proton.me',
     subject: 'A Customer Has Contacted You', // Subject line
     text: 'You have a message from the website!', // plain text body
