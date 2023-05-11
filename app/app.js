@@ -79,7 +79,6 @@ app.post('/send', (req, res) => {
       console.log('Message: ' + output)
       console.log('Mail sent!')
       setTimeout(() => {
-        alert("Your message has been sent. Thank you.")
         res.redirect('/');
       }, 2000);
     }
